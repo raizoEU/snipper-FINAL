@@ -1,0 +1,56 @@
+<div class="container my-4">
+  <div class="card">
+    <div class="card-header bg-primary text-light">
+      <h5>Submit Your Code Snippet</h5>
+    </div>
+    <div class="card-body">
+      <form method="POST" action="/submit-snippet">
+        <div class="mb-3">
+          <label for="title" class="form-label">Snippet Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            placeholder="Enter the title of your snippet"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="code" class="form-label">Code Snippet</label>
+          <textarea
+            class="form-control"
+            id="code"
+            name="code"
+            rows="8"
+            placeholder="Paste your code snippet here"
+            required
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Code Description</label>
+          <textarea
+            class="form-control"
+            id="description"
+            name="description"
+            rows="3"
+            placeholder="Enter some information about your code here"
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="language" class="form-label">Programming Language</label>
+          <select class="form-select" id="language" name="language" required>
+            <option value="">Select a language</option>
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="csharp">C#</option>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Snippet</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container my-4">
+  <form action="/search-results" method="POST" class="mb-4">
+    <div class="input-group">
+      <input
+        type="text"
+        name="query"
+        class="form-control"
+        placeholder="Search snippets by title"
+        value="<%= query %>"
+        required
+      />
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </form>
+
+  <% if (snippets.length > 0) { %>
+  <div class="list-group">
+    <% snippets.forEach(snippet => { %>
+    <a
+      href="/snippet/<%= snippet.id %>"
+      class="list-group-item list-group-item-action"
+    >
+      <h5><%= snippet.title %></h5>
+      <p><%= snippet.description %></p>
+      <small>Submitted by: <%= snippet.username || 'Guest' %></small>
+    </a>
+    <% }); %>
+  </div>
+  <% } else if (query) { %>
+  <p>No snippets found for "<%= query %>".</p>
+  <% } %>
+</div>

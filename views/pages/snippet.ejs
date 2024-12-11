@@ -1,0 +1,36 @@
+<div class="container my-4">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title"><%= snippet.title %></h3>
+      <pre class="p-3 rounded"><code><%= snippet.code %></code></pre>
+      <p class="card-text"><%= snippet.description %></p>
+      <p class="card-text">
+        <strong>Language:</strong> <%= snippet.language %>
+      </p>
+      <p class="card-text">
+        <strong>Submitted by:</strong> <%= snippet.username || 'Guest' %>
+      </p>
+      <button
+        class="btn btn-secondary ms-2"
+        id="copyLinkBtn"
+        data-clipboard-text="/snippet/<%= snippet.id %>"
+      >
+        Copy Link to Clipboard
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("copyLinkBtn").addEventListener("click", function () {
+    const relativeUrl = this.getAttribute("data-clipboard-text");
+    const fullUrl = window.location.origin + relativeUrl;
+    const textarea = document.createElement("textarea");
+    textarea.value = fullUrl;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+    alert("Link copied to clipboard!");
+  });
+</script>

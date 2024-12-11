@@ -1,0 +1,16 @@
+<% snippets.forEach(function(snippet) { %>
+<div class="card my-4">
+  <div class="card-body">
+    <h3 class="card-title"><%= snippet.title %></h3>
+    <pre class="p-3 rounded"><code><%= snippet.code %></code></pre>
+    <p class="card-text"><%= snippet.description %></p>
+    <p class="card-text"><strong>Language:</strong> <%= snippet.language %></p>
+    <p class="card-text">
+      <strong>Submitted by:</strong> <%= snippet.username || 'Guest' %>
+    </p>
+    <a href="/snippet/<%= snippet.id %>" class="btn btn-primary"
+      >View Snippet</a
+    >
+  </div>
+</div>
+<% }) %>
